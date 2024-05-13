@@ -1,0 +1,50 @@
+@import '../theme-variables.scss';
+
+
+
+
+.app-theme-toggle {
+    margin-top: 20px;
+}
+
+
+.app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    /* Ensure the container fills the entire viewport */
+}
+
+.app-header {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+.main-content {
+    display: flex;
+    flex: 1;
+    /* Take up remaining space */
+}
+
+.app-sidebar {
+    width: 200px;
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+.content {
+    flex: 1;
+    /* Take up remaining space */
+    padding: 20px;
+}
+
+.app-footer {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    margin-top: auto;
+    /* Push footer to the bottom of the container */
+}

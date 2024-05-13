@@ -1,0 +1,80 @@
+/* settings.component.scss */
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.setting {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+label {
+    flex: 1;
+    font-size: 18px;
+    color: #333;
+}
+
+.toggle {
+    position: relative;
+}
+
+.toggle input[type="checkbox"] {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle-switch {
+    display: block;
+    width: 40px;
+    height: 20px;
+    border-radius: 20px;
+    background-color: #ccc;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: background-color 0.3s;
+}
+
+.toggle input[type="checkbox"]:checked+.toggle-switch {
+    background-color: #3498db;
+}
+
+.toggle-switch::after {
+    content: "";
+    display: block;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: #fff;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    transition: transform 0.3s;
+}
+
+.toggle input[type="checkbox"]:checked+.toggle-switch::after {
+    transform: translateX(20px);
+}
+
+select {
+    padding: 8px 12px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    width: 150px;
+    color: #555;
+}
+
+option {
+    color: #555;
+    background-color: #fff;
+}

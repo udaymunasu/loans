@@ -1,0 +1,74 @@
+// Custom Theming for Angular Material
+// @use "@angular/material" as mat;
+@import './theme-variables.scss';
+
+// styles.scss
+
+@import 'theme-variables';
+
+:root {
+  --primary: $light-primary;
+  --accent: $light-accent;
+  --warn: $light-warn;
+  --background: $light-background;
+  --text-primary: $light-text-primary;
+  --text-secondary: $light-text-secondary;
+}
+
+.dark-theme {
+  --primary: $dark-primary;
+  --accent: $dark-accent;
+  --warn: $dark-warn;
+  --background: $dark-background;
+  --text-primary: $dark-text-primary;
+  --text-secondary: $dark-text-secondary;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text-primary);
+}
+
+.app-theme-toggle {
+  margin-top: 20px;
+}
+
+
+/* You can add global styles to this file, and also import other style files */
+// @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--background) !important;
+    color: var(--text-primary)  !important;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 0.5rem;
+    background-color: #fff;
+    margin: 1.25rem 0 1.25rem 0;
+    box-shadow: 0 0.25rem 0.5rem #e6edef;
+
+    .card-head {
+        padding: 1rem 1.5rem;
+        border-bottom: 1px solid #edf1f7;
+        font-size: 1rem;
+        font-weight: 600;
+    }
+
+    .card-body {
+        padding: 1rem 1.5rem;
+    }
+}
+
+html,
+body {
+    height: 100%;
+}

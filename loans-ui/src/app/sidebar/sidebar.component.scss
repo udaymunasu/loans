@@ -1,0 +1,76 @@
+$primary-color: #7f8fa4; // Soothing dark blue color
+$secondary-color: #ffffff; // White color for contrast
+$font-family: 'Roboto', sans-serif; // Clean and easy-to-read font
+
+.sidebar {
+    background-color: #2c3e50; // Dark background
+    width: 250px;
+    height: 100%;
+    padding: 20px;
+    font-family: $font-family;
+    color: $secondary-color; // White text color
+
+    .sidebar-nav {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+
+        .sidebar-item {
+            margin-bottom: 10px;
+
+            .sidebar-link {
+                color: $secondary-color; // White color for links
+                text-decoration: none;
+                display: flex;
+                align-items: center;
+                padding: 10px;
+                border-radius: 5px;
+                transition: background-color 0.3s ease; // Smooth transition for background color
+
+                &.active {
+                    background-color: #34495e; // Darker background for active links
+                    font-weight: bold;
+                }
+
+                &:hover {
+                    background-color: #445569; // Dark hover effect
+                }
+
+                i {
+                    margin-right: 10px;
+                }
+
+                .submenu-toggle-icon {
+                    margin-left: auto;
+                }
+            }
+
+            .submenu {
+                list-style-type: none;
+                padding: 0;
+                margin-top: 5px;
+                font-size: 0.9em; // Smaller font size for submenus
+
+                &.open {
+                    display: block;
+                }
+
+                .submenu-item {
+                    margin-left: 20px;
+
+                    .submenu-link {
+                        color: $secondary-color; // White color for submenu links
+                        text-decoration: none;
+                        display: block;
+                        padding: 5px;
+                        transition: background-color 0.3s ease; // Smooth transition for background color
+
+                        &:hover {
+                            background-color: #445569; // Dark hover effect
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

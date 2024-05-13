@@ -1,0 +1,104 @@
+<!-- settings.component.html -->
+<div class="container">
+    <h1>Settings</h1>
+
+    <div class="setting">
+        <label for="notifications">Gmail Notifications:</label>
+        <div class="toggle">
+            <input type="checkbox" id="notifications" [(ngModel)]="gmailNotifications">
+            <label for="notifications" class="toggle-switch"></label>
+        </div>
+    </div>
+
+    <div class="setting">
+        <label for="sms">SMS Alerts:</label>
+        <div class="toggle">
+            <input type="checkbox" id="sms" [(ngModel)]="smsAlerts">
+            <label for="sms" class="toggle-switch"></label>
+        </div>
+    </div>
+
+    <div class="setting">
+        <label for="dark-mode">Dark Mode:</label>
+        <div class="toggle">
+            <input type="checkbox" id="dark-mode" [(ngModel)]="darkMode">
+            <label for="dark-mode" class="toggle-switch"></label>
+        </div>
+    </div>
+
+    <div class="setting">
+        <label for="push-notifications">Push Notifications:</label>
+        <div class="toggle">
+            <input type="checkbox" id="push-notifications" [(ngModel)]="pushNotifications">
+            <label for="push-notifications" class="toggle-switch"></label>
+        </div>
+    </div>
+
+    <div class="setting">
+        <label for="location-tracking">Location Tracking:</label>
+        <div class="toggle">
+            <input type="checkbox" id="location-tracking" [(ngModel)]="locationTracking">
+            <label for="location-tracking" class="toggle-switch"></label>
+        </div>
+    </div>
+
+    <div class="setting">
+        <label for="biometric-auth">Biometric Authentication:</label>
+        <div class="toggle">
+            <input type="checkbox" id="biometric-auth" [(ngModel)]="biometricAuth">
+            <label for="biometric-auth" class="toggle-switch"></label>
+        </div>
+    </div>
+
+    <div class="setting">
+        <label for="auto-sync">Auto Sync:</label>
+        <div class="toggle">
+            <input type="checkbox" id="auto-sync" [(ngModel)]="autoSync">
+            <label for="auto-sync" class="toggle-switch"></label>
+        </div>
+    </div>
+
+    <div class="setting">
+        <label for="show-images">Show Images:</label>
+        <div class="toggle">
+            <input type="checkbox" id="show-images" [(ngModel)]="showImages">
+            <label for="show-images" class="toggle-switch"></label>
+        </div>
+    </div>
+
+    <div class="setting">
+        <label for="sound-effects">Sound Effects:</label>
+        <div class="toggle">
+            <input type="checkbox" id="sound-effects" [(ngModel)]="soundEffects">
+            <label for="sound-effects" class="toggle-switch"></label>
+        </div>
+    </div>
+
+    <div class="setting">
+        <label for="notifications">In-App Notifications:</label>
+        <div class="toggle">
+            <input type="checkbox" id="in-app-notifications" [(ngModel)]="inAppNotifications">
+            <label for="in-app-notifications" class="toggle-switch"></label>
+        </div>
+    </div>
+
+    <div class="setting">
+        <label for="reminders">Reminders:</label>
+        <div class="toggle">
+            <input type="checkbox" id="reminders" [(ngModel)]="reminders">
+            <label for="reminders" class="toggle-switch"></label>
+        </div>
+    </div>
+
+    <div class="setting">
+        <label for="language">Language:</label>
+        <select id="language" [(ngModel)]="selectedLanguage">
+            <option value="english">English</option>
+            <option value="spanish">Spanish</option>
+            <option value="french">French</option>
+            <!-- Add more languages as needed -->
+        </select>
+    </div>
+
+    <!-- Add more settings as needed -->
+</div>

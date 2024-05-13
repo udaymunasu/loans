@@ -1,0 +1,28 @@
+<nav class="sidebar">
+    <ul class="sidebar-nav">
+        <!-- Iterate over navbarData -->
+        <ng-container *ngFor="let item of navbarData">
+            <li class="sidebar-item" *ngIf="!item.submenuLevel1; else submenu1">
+                <a class="sidebar-link" [routerLink]="item.routeLink" routerLinkActive="active">
+                    <i class="{{item.icon}}"></i> {{item.label}}
+                </a>
+            </li>
+            <ng-template #submenu1>
+                <li class="sidebar-item" [ngClass]="{'open': item.showSubmenu}">
+                    <a class="sidebar-link" href="javascript:void(0)" (click)="toggleSubmenu(item)">
+                        <i class="{{item.icon}}"></i> {{item.label}}
+                        <span class="submenu-toggle-icon"
+                            [ngClass]="{'fa-chevron-down': item.showSubmenu, 'fa-chevron-right': !item.showSubmenu}"></span>
+                    </a>
+                    <ul class="submenu" *ngIf="item.showSubmenu">
+                        <li class="submenu-item" *ngFor="let subItem of item.submenuLevel1">
+                            <a class="submenu-link" [routerLink]="subItem.routeLink" routerLinkActive="active">
+                                {{subItem.label}}
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ng-template>
+        </ng-container>
+    </ul>
+</nav>

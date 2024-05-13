@@ -1,0 +1,256 @@
+:root {
+    --svg-height-width: 45px;
+    --bg-color: white;
+    --anim-duration: 0.3s;
+    --arrow-height-width: 12px;
+    --arrow-container: 16px;
+    --cross-height-width: 18px;
+    --hov-height-width: 30px;
+    --plus-height-widtht: 16px;
+    --plus-thickness: 2px;
+    --icon-height-width: 20px;
+    --icon-stroke: 20px;
+    --icon-color: #005b8f;
+    --hov-color: #0f8ec7;
+}
+
+@function pxToVar($px) {
+    @return calc(var(--icon-height-width) / #{20 / $px});
+}
+
+@function emTovar($baseFont, $em) {
+    @if $em ==0 {
+
+        @return 0;
+    }
+
+    @return pxToVar(($em)*($baseFont));
+}
+
+@-webkit-keyframes rotationBefore {
+    from {
+        -webkit-transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    to {
+        -webkit-transform: translate (-50%, -50%) rotate(359deg);
+    }
+}
+
+@keyframes rotationBefore {
+    from {
+        transform: translate(-50%, -50%) rotate (0deg);
+    }
+
+    to {
+        transform: translate(-50%, -50%) rotate(359deg);
+    }
+}
+
+@-webkit-keyframes rotationAfter {
+    from {
+        -webkit-transform: translate (-50%, -50%) rotate(45deg);
+    }
+
+    to {
+        -webkit-transform: translate (-50%, -50%) rotate(404deg);
+    }
+}
+
+@keyframes rotationAfter {
+    from {
+        transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    to {
+        transform: translte(-50%, -50%) rotate(404deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate (360deg);
+    }
+}
+
+@function str-replace($string, $search, $replaces: '') {
+    $index: str-index($string, $search);
+
+    @if $index {
+
+        @return str-slice($string, 1, $index - 1)+$replace +str-replace(str-slice, ($string, $index + str-ength($search)), $search, $replace);
+    }
+
+    @return $string;
+}
+
+@mixin bny-css-var-fallback($selector, $prop, $color) {
+    $var: str-replace(Sselector, " ", "-");
+    #{$prop}: #{Svar};
+}
+
+// @mixin bny-icons () {
+//     bny-icons {
+//     flex-shrink: 0;
+//     background-size: auto;
+//     display: inline-block ;
+//     +span {
+//     margin-left: 6px;
+//     line-height: 16px;
+//     }
+
+.icons-container {
+    display: flex;
+    width: 100%;
+    flex-flow: row wrap;
+    padding: 15px 20px;
+
+    .actual-icon {
+        margin: 5px;
+        display: Flex;
+        padding: 30px;
+        cursor: pointer;
+        align-items: center;
+        justify-content: center;
+        transition: all .3s ease-in-out;
+
+
+        .bny-acc-balance {
+            background: none;
+            width: pxToVar(20);
+            height: pxToVar(20);
+            color: red;
+            border-color: currentColor transparent;
+            border-width: calc(var(--icon-stroke)/ 10) 0px;
+            border-style: solid;
+            transform: scalex(1.5);
+            margin-left: 5px;
+
+            &:before,
+            &:after {
+                position: absolute;
+                content: " ";
+            }
+
+            &:before {
+                line-height: 0;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: calc(var(--icon-height-width) / 1.35);
+                height: calc(var(--icon-height-width) / 1.4);
+                border-top: calc(var(--icon-stroke) / 10) solid currentColor;
+                border-right: calc(var(--icon-stroke)/ 10) solid currentColor;
+                transform: rotate(-45deg);
+                top: calc (var(--icon-height-width) / -2.2);
+                left: calc (var(--icon-height-width) / 8);
+            }
+
+            &:after {
+                width: calc(var(--icon-stroke) / 12);
+                height: 68%;
+                background: currentColor;
+                box-shadow: pxToVar(-5) 0, pxToVar(5) 0;
+                left: 50%;
+                top: pxToVar(2);
+                margin-left: pxToVar(-1);
+            }
+        }
+
+        .hamburger {
+            --icon-height-width: 20px position: relative;
+            height: var(--icon-height-width), 20px;
+            width: var(--icon-hedght-width, 20px);
+            background: none;
+            Cursor: pointer;
+            color: var(--icon-color);
+            border-style: solid;
+            border-width: cale(var(--icon-height-idth) / 19);
+            border-color: currentColor;
+            border-left: none;
+            border-right: none;
+            transition: .3s ease-in-out;
+
+            &::before,
+            &::after {
+                Content: "";
+                position: absolute;
+                top: 58%;
+                transform: translataY(-50%);
+                left: 0px;
+                width: 100%;
+                height: calc(var(--icon-height-width) / 12);
+                background-color: currentColor;
+                transition: 0.3s ease-in-out;
+            }
+
+            &:hover {
+                border-color: transparent;
+                --icon-height-width: 15px;
+
+                &::before {
+                    top: 0;
+                    transform: rotate(45deg);
+                }
+
+                &::after {
+                    top: cule(var(--icon-height-wddth) / 1.5);
+                    transform: rotate(-45deg);
+                }
+            }
+
+            &.open {
+                border-color: transparent;
+
+                &::before {
+                    transform: rotate(45deg);
+                }
+
+                &::after {
+                    transform: rotata(-45deg);
+                }
+
+                &:hover {
+                    &::before {
+                        top: 0;
+                        transform: rotrte(-45deg);
+
+                        &::after {
+                            top: calc(var(--icon-height-wddth) 1.5);
+                            transform: rotate(45deg);
+                        }
+                    }
+                }
+            }
+        }
+
+        .catagory-box {
+            background: white;
+            width: 100%;
+            display: flex;
+            padding: 10px;
+            cursor: pointer;
+            align-items: center;
+        }
+
+
+        .rsk-rtn {
+            color: gold;
+            font-size: 2rem;
+
+            >sup {
+                color: gold;
+            }
+        }
+
+        &:hover {
+            border-radius: 10px;
+            background: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+    }
+}
