@@ -52,7 +52,7 @@
             <tbody>
               <tr *ngFor="let customer of displayedCustomers">
                 <td>
-                  <a [routerLink]="['../view', customer._id]">{{
+                  <a class="link" [routerLink]="['../customers/view', customer._id]">{{
                     customer._id
                   }}</a>
                 </td>

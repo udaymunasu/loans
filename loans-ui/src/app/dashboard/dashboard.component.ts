@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CustomerService } from '../services/customer.service';
 
-
 interface Customer {
   name: string;
   email: string;
@@ -28,18 +27,17 @@ interface LoanType {
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss']
+  styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
-
-  totalCustomers: number = 1000;
+  totalCustomers: number;
   totalLoans: number = 500;
   totalInvoices: number = 300;
   pendingLoans: number = 150;
   approvedLoans: number = 350;
 
   customerList: any;
-  displayedCustomers: any[]
+  displayedCustomers: any[];
   latestLoans: Loan[] = [
     { amount: 1000, date: '2024-04-01', status: 'Approved' },
     { amount: 2000, date: '2024-04-02', status: 'Pending' },
@@ -55,7 +53,7 @@ export class DashboardComponent implements OnInit {
       this.loanStatus.push({
         id: i,
         amount: Math.floor(Math.random() * 10000) + 1000,
-        status: Math.random() < 0.5 ? 'Approved' : 'Pending'
+        status: Math.random() < 0.5 ? 'Approved' : 'Pending',
       });
     }
 
@@ -64,26 +62,25 @@ export class DashboardComponent implements OnInit {
     for (let type of types) {
       this.loanTypes.push({
         type: type,
-        interestRate: Math.floor(Math.random() * 10) + 5
+        interestRate: Math.floor(Math.random() * 10) + 5,
       });
     }
   }
   ngOnInit(): void {
-    this.getCustomerList()
+    this.getCustomerList();
   }
 
   getCustomerList() {
-    this.cutsomerService.getCustomers().subscribe(data => {
-      if(data) {
-        this.customerList = data
-        if(this.customerList.users.length) {
-        this.displayedCustomers = this.customerList.users.slice(0, 3);
-
+    this.cutsomerService.getCustomers().subscribe((data) => {
+      if (data) {
+        this.customerList = data;
+        if (this.customerList.users.length) {
+          this.totalCustomers = this.customerList.users.length;
+          this.displayedCustomers = this.customerList.users.slice(0, 3);
         }
       }
-      
-      console.log("this.customers", this.displayedCustomers)
-    })
-  }
 
+      console.log('this.customers', this.displayedCustomers);
+    });
+  }
 }

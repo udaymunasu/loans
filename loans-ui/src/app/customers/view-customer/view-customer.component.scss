@@ -8,11 +8,11 @@
 
   .card-body {
     color: #212529;
-    padding: 20px;
+    padding: 14px 28px;
 
     .card-header {
       display: flex;
-      margin-bottom: 20px;
+      margin-bottom: 16px;
       align-items: center;
       justify-content: space-between;
 
@@ -52,4 +52,11 @@
       }
     }
   }
+
+  .card-footer {
+    display: flex;
+    margin: 12px 24px;
+    justify-content: flex-end;
+  }
+
 }

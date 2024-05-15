@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 
 const laonSchema = new mongoose.Schema(
     {
+        customerId: String,
         loantype: Array,
         loanname: String,
         loanamount: Number,
