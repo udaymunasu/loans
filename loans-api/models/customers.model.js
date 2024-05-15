@@ -13,6 +13,8 @@ const userSchema = new mongoose.Schema(
     profilepicture: String,
     coverPicture: String,
     worksat: String,
+    aadharcard: String,
+    pancard: String,
   },
   {
     timestamps: true,
