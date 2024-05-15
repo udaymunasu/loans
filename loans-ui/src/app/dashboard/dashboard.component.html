@@ -1,117 +1,131 @@
 <div class="dashboard">
-
-    <div class="container">
-        <div class="card-container">
-            <div class="card">
-                <div class="card-content">
-                    <div class="card-title">Customers</div>
-                    <div class="card-number">{{ totalCustomers }}</div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-content">
-                    <div class="card-title">Loans</div>
-                    <div class="card-number">{{ totalLoans }}</div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-content">
-                    <div class="card-title">Invoices</div>
-                    <div class="card-number">{{ totalInvoices }}</div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-content">
-                    <div class="card-title">Pending Loans</div>
-                    <div class="card-number">{{ pendingLoans }}</div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-content">
-                    <div class="card-title">Approved Loans</div>
-                    <div class="card-number">{{ approvedLoans }}</div>
-                </div>
-            </div>
+  <div class="container">
+    <div class="card-container">
+      <div class="card">
+        <div class="card-content">
+          <div class="card-title">Customers</div>
+          <div class="card-number">{{ totalCustomers }}</div>
         </div>
-
-        <div class="widget-container">
-            <div class="widget">
-                <h2>Latest Customers</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Phone</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let customer of latestCustomers">
-                            <td>{{ customer.name }}</td>
-                            <td>{{ customer.email }}</td>
-                            <td>{{ customer.phone }}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="widget">
-                <h2>Latest Loans</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Amount</th>
-                            <th>Date</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let loan of latestLoans">
-                            <td>{{ loan.amount }}</td>
-                            <td>{{ loan.date }}</td>
-                            <td>{{ loan.status }}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="widget">
-                <h2>Loan Status</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Loan ID</th>
-                            <th>Amount</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let loan of loanStatus">
-                            <td>{{ loan.id }}</td>
-                            <td>{{ loan.amount }}</td>
-                            <td>{{ loan.status }}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="widget">
-                <h2>Loan Types</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Type</th>
-                            <th>Interest Rate</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let loanType of loanTypes">
-                            <td>{{ loanType.type }}</td>
-                            <td>{{ loanType.interestRate }}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+      </div>
+      <div class="card">
+        <div class="card-content">
+          <div class="card-title">Loans</div>
+          <div class="card-number">{{ totalLoans }}</div>
         </div>
+      </div>
+      <div class="card">
+        <div class="card-content">
+          <div class="card-title">Invoices</div>
+          <div class="card-number">{{ totalInvoices }}</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-content">
+          <div class="card-title">Pending Loans</div>
+          <div class="card-number">{{ pendingLoans }}</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-content">
+          <div class="card-title">Approved Loans</div>
+          <div class="card-number">{{ approvedLoans }}</div>
+        </div>
+      </div>
     </div>
+
+    <div class="widget-container">
+      <div class="widget">
+        <h2>Latest Customers</h2>
+        <div class="customer-table webkit-styling" id="style-1">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Dob</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Location</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let customer of displayedCustomers">
+                <td>
+                  <a [routerLink]="['../view', customer._id]">{{
+                    customer._id
+                  }}</a>
+                </td>
+
+                <td>{{ customer.firstname }}</td>
+                <td>{{ customer.lastname }}</td>
+                <td>{{ customer.dob }}</td>
+                <td>{{ customer.email }}</td>
+                <td>{{ customer.mobile }}</td>
+                <td>{{ customer.location }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="widget">
+        <h2>Latest Loans</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Amount</th>
+              <th>Date</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let loan of latestLoans">
+              <td>{{ loan.amount }}</td>
+              <td>{{ loan.date }}</td>
+              <td>{{ loan.status }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="widget">
+        <h2>Loan Status</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Loan ID</th>
+              <th>Amount</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let loan of loanStatus">
+              <td>{{ loan.id }}</td>
+              <td>{{ loan.amount }}</td>
+              <td>{{ loan.status }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="widget">
+        <h2>Loan Types</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Type</th>
+              <th>Interest Rate</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let loanType of loanTypes">
+              <td>{{ loanType.type }}</td>
+              <td>{{ loanType.interestRate }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 </div>

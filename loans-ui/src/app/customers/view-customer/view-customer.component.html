@@ -1,24 +1,31 @@
 <!-- list-customers.component.html -->
 
 <div class="customer-card" *ngIf="customer">
-    <div class="card-body">
-        <h5 class="card-title">Customer Details</h5>
-        <div class="row">
-            <div class="col-md-6">
-                <p><strong>ID:</strong> <a>{{ customer._id }}</a></p>
-                <p><strong>First Name:</strong> {{ customer.firstname }}</p>
-                <p><strong>Last Name:</strong> {{ customer.lastname }}</p>
-                <p><strong>Date of Birth:</strong> {{ customer.dob }}</p>
-            </div>
-            <div class="col-md-6">
-                <p><strong>Email:</strong> {{ customer.email }}</p>
-                <p><strong>Phone:</strong> {{ customer.mobile }}</p>
-                <p><strong>Location:</strong> {{ customer.location }}</p>
-            </div>
-        </div>
+  <div class="card-body">
+    <div class="card-header">
+      <h5 class="card-title">Customer Details</h5>
+      <button class="edit-button">Edit
+          <span class="px-icons edit"></span>
+      </button>
     </div>
+    <div class="row">
+      <div class="col-md-6">
+        <p>
+          <strong>ID:</strong> <a>{{ customer._id }}</a>
+        </p>
+        <p><strong>First Name:</strong> {{ customer.firstname }}</p>
+        <p><strong>Last Name:</strong> {{ customer.lastname }}</p>
+        <p><strong>Date of Birth:</strong> {{ customer.dob }}</p>
+      </div>
+      <div class="col-md-6">
+        <p><strong>Email:</strong> {{ customer.email }}</p>
+        <p><strong>Phone:</strong> {{ customer.mobile }}</p>
+        <p><strong>Location:</strong> {{ customer.location }}</p>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div *ngIf="!customer">
-    <p>No customer details found.</p>
+  <p>No customer details found.</p>
 </div>

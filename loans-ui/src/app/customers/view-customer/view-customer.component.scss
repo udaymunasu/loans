@@ -1,50 +1,55 @@
 /* list-customers.component.scss */
 
 .customer-card {
-    background-color: #f8f9fa;
-    /* Light grey background */
-    border: 1px solid #dee2e6;
-    /* Light border color */
-    border-radius: 10px;
-    /* Rounded corners */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    /* Shadow effect */
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
-    .card-body {
-        color: #212529;
-        /* Text color */
-        padding: 20px;
-        /* Padding inside the card */
+  .card-body {
+    color: #212529;
+    padding: 20px;
 
-        .card-title {
-            color: #007bff;
-            /* Title color */
-            font-size: 1.25rem;
-            /* Title font size */
-            margin-bottom: 20px;
-            /* Bottom margin for title */
-        }
+    .card-header {
+      display: flex;
+      margin-bottom: 20px;
+      align-items: center;
+      justify-content: space-between;
 
-        p {
-            margin-bottom: 10px;
-            /* Bottom margin for each paragraph */
+      .card-title {
+        color: #007bff;
+        font-size: 1.25rem;
+      }
 
-            strong {
-                color: #6c757d;
-                /* Strong text color */
-            }
-
-            a {
-                color: #28a745;
-                /* Link color */
-                text-decoration: none;
-
-                /* Remove default underline */
-                &:hover {
-                    text-decoration: underline;
-                    /* Add underline on hover */
-                }
-            }
-        }
+      .edit-button {
+        --icon-size: 16px;
+        display: flex;
+        align-items: center;
+        padding: 4px 16px;
+        gap: 12px;
+        border-radius: 8px;
+        background: lavender;
+        border: 2px solid darkcyan;
+      }
     }
+
+    p {
+      margin-bottom: 10px;
+      display: flex;
+      gap: 12px;
+
+      strong {
+        color: #6c757d;
+      }
+
+      a {
+        color: #28a745;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
 }

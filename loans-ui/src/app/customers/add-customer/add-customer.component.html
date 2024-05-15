@@ -1,1 +1,67 @@
-<p>add-customer works!</p>
+<div class="create-book">
+    <h2>Create a Book</h2>
+    <form [formGroup]="customerForm" (ngSubmit)="createCustomer()">
+        <div class="form-row">
+            <div class="form-group">
+                <label for="isbn">Firstname:</label>
+                <input type="text" id="firstname" formControlName="firstname" placeholder="Enter Firstname" />
+            </div>
+
+            <div class="form-group">
+                <label for="title">Lastname:</label>
+                <input type="text" id="lastname" formControlName="lastname" placeholder="Enter Lastname" />
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="author">Email:</label>
+                <input type="text" id="email" formControlName="email" placeholder="Enter Email" />
+            </div>
+
+            <div class="form-group">
+                <label for="description">Location:</label>
+                <textarea id="location" formControlName="location" placeholder="Enter Location"></textarea>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="publishedYear">Mobile No:</label>
+                <input type="text" id="mobile" formControlName="mobile" placeholder="Enter Mobile No" />
+            </div>
+
+            <div class="form-group">
+                <label for="publisher">DOB:</label>
+                <input type="text" id="dob" formControlName="dob" placeholder="Enter DOB" />
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="category">gender:</label>
+                <input type="text" id="gender" formControlName="gender" placeholder="gender" />
+            </div>
+
+            <div class="form-group">
+                <label for="category">profilepicture:</label>
+                <input type="text" id="profilepicture" formControlName="profilepicture"
+                    placeholder="profilepicture" />
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="category">coverPicture:</label>
+                <input type="text" id="coverPicture" formControlName="coverPicture" placeholder="coverPicture" />
+            </div>
+
+            <div class="form-group">
+                <label for="category">worksat:</label>
+                <input type="text" id="worksat" formControlName="worksat" placeholder="worksat" />
+            </div>
+        </div>
+
+        <button type="submit" >Create Customer</button>
+    </form>
+</div>

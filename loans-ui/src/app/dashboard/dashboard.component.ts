@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CustomerService } from '../services/customer.service';
 
 
 interface Customer {
@@ -37,12 +38,8 @@ export class DashboardComponent implements OnInit {
   pendingLoans: number = 150;
   approvedLoans: number = 350;
 
-  latestCustomers: Customer[] = [
-    { name: 'John Doe', email: 'john@example.com', phone: '123-456-7890' },
-    { name: 'Jane Doe', email: 'jane@example.com', phone: '987-654-3210' },
-    // Add more customers here
-  ];
-
+  customerList: any;
+  displayedCustomers: any[]
   latestLoans: Loan[] = [
     { amount: 1000, date: '2024-04-01', status: 'Approved' },
     { amount: 2000, date: '2024-04-02', status: 'Pending' },
@@ -52,7 +49,7 @@ export class DashboardComponent implements OnInit {
   loanStatus: LoanStatus[] = [];
   loanTypes: LoanType[] = [];
 
-  constructor() {
+  constructor(private cutsomerService: CustomerService) {
     // Generate random loan status data
     for (let i = 1; i <= 10; i++) {
       this.loanStatus.push({
@@ -72,6 +69,21 @@ export class DashboardComponent implements OnInit {
     }
   }
   ngOnInit(): void {
+    this.getCustomerList()
+  }
+
+  getCustomerList() {
+    this.cutsomerService.getCustomers().subscribe(data => {
+      if(data) {
+        this.customerList = data
+        if(this.customerList.users.length) {
+        this.displayedCustomers = this.customerList.users.slice(0, 3);
+
+        }
+      }
+      
+      console.log("this.customers", this.displayedCustomers)
+    })
   }
 
 }

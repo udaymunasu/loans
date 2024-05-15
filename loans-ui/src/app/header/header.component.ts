@@ -18,4 +18,8 @@ export class HeaderComponent implements OnInit {
     this.dropdownOpen = !this.dropdownOpen;
   }
 
+  logout() {
+    window.alert("Logged Out Succesfully")
+  }
+
 }

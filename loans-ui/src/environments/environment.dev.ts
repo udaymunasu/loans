@@ -2,6 +2,7 @@ export const environment = {
     production: false,
     CUSTOMER_BASE_URL: 'http://localhost:3000/customer/',
     CUSTOMER: {
+        ADD_CUSTOMER: 'add',
         GET_ALL_CUSTOMERS: 'list',
         GET_CUSTOMERS: 'get',
         UPDATE_CUSTOMER: 'update',

@@ -1,6 +1,6 @@
 <nav class="navbar">
   <div class="container-navbar">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="#">Ezee Loans</a>
     <button class="navbar-toggler" type="button" aria-controls="navbarNavDropdown"
       aria-expanded="false" aria-label="Toggle navigation" (click)="toggleDropdown()">
       <span class="navbar-toggler-icon"></span>
@@ -18,15 +18,14 @@
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" aria-expanded="false" (click)="toggleDropdown()">
-            Dropdown link
+            User
           </a>
           <ul class="dropdown-menu" [ngClass]="{'show': dropdownOpen}">
-            <li><a class="dropdown-item" href="settings">Settings</a></li>
+            <li><a class="dropdown-item" routerLink="settings">Settings</a></li>
             <li><a class="dropdown-item" href="activity">Activity</a></li>
-            <li><a class="dropdown-item" href="logout">Logout</a></li>
+            <li><a class="dropdown-item" (click)="logout()">Logout</a></li>
           </ul>
         </li>
-        <p><mat-slide-toggle labelPosition="before">...and slide me too!</mat-slide-toggle></p>
       </ul>
     </div>
   </div>

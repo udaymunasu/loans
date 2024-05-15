@@ -2,7 +2,7 @@
 <div class="container">
     <h1>
       Customers
-      <button (click)="addCustomer()" class="add-customer-btn">Add Customer</button>
+      <button routerLink="../add" class="add-customer-btn">Add Customer</button>
     </h1>
     <div class="search-container">
       <input type="text" [(ngModel)]="searchText" placeholder="Search" class="search-field">
@@ -16,7 +16,7 @@
           <th>Dob</th>
           <th>Email</th>
           <th>Phone</th>
-          <th>LOcation</th>
+          <th>Location</th>
         </tr>
       </thead>
       <tbody>

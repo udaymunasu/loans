@@ -10,6 +10,8 @@ router.post('/add', async function (req, res, next) {
   try {
     const params = req.body;
     const user = new customerModel();
+    console.log("user", user);
+
 
     user.firstname = params.firstname;
     user.lastname = params.lastname;
@@ -23,7 +25,6 @@ router.post('/add', async function (req, res, next) {
     user.coverPicture = params.coverPicture;
     user.worksat = params.worksat;
 
-    console.log("user", user);
 
     // Check if the user with the provided email or nickname already exists
     let existingUser;

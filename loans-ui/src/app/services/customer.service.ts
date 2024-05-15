@@ -7,6 +7,12 @@ import { environment } from '../../environments/environment.dev';
 export class CustomerService {
   constructor(private httpClient: HttpClient) {}
 
+  createCustomer(formData: any) {
+    let url = environment.CUSTOMER_BASE_URL + environment.CUSTOMER.ADD_CUSTOMER;
+    console.log("data customers from service", formData)
+    return this.httpClient.post<any>(" http://localhost:3000/customer/add", formData);
+  }
+
   getCustomers() {
     let url =
       environment.CUSTOMER_BASE_URL + environment.CUSTOMER.GET_ALL_CUSTOMERS;
