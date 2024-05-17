@@ -55,8 +55,8 @@ export class LoanDetailsComponent implements OnInit {
       this.loanService.getByCustomerId(customerId).subscribe(
         (data) => {
           // Check if data is received successfully
-          if (data) {
-            this.allLoans = data;
+          if (data && data['loan']) {
+            this.allLoans = data['loan'];
             console.log('All Loans', this.allLoans);
           } else {
             console.error('Customer data not found');

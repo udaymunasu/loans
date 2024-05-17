@@ -12,7 +12,7 @@ export class LoansService {
   createloan(formData: any) {
     let url = environment.LOAN_BASE_URL + environment.LOAN.APPLY_LOAN;
     console.log("data LOANs from service", formData)
-    return this.httpClient.post<any>(" http://localhost:3000/loan/add", formData);
+    return this.httpClient.post<any>(" http://localhost:3000/loan/applyloan", formData);
   }
 
   getallloanss() {

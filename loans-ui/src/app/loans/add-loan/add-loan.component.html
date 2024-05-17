@@ -1,1 +1,57 @@
-<p>add-loan works!</p>
+<form [formGroup]="loanForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="customerId">Customer ID</label>
+      <input class="form-input" id="customerId" formControlName="customerId">
+      <div *ngIf="loanForm.get('customerId').invalid && (loanForm.get('customerId').dirty || loanForm.get('customerId').touched)">
+        <small *ngIf="loanForm.get('customerId').errors['required']">Customer ID is required.</small>
+      </div>
+    </div>
+  
+    <div>
+      <label for="loantype">Loan Type</label>
+      <select id="loantype" formControlName="loantype">
+        <option *ngFor="let type of loanTypes" [value]="type">{{ type }}</option>
+      </select>
+      <div *ngIf="loanForm.get('loantype').invalid && (loanForm.get('loantype').dirty || loanForm.get('loantype').touched)">
+        <small *ngIf="loanForm.get('loantype').errors['required']">Loan Type is required.</small>
+      </div>
+    </div>
+  
+    <div>
+      <label for="loanname">Loan Company</label>
+      <select id="loanname" formControlName="loanname">
+        <option *ngFor="let company of loanCompanies" [value]="company">{{ company }}</option>
+      </select>
+      <div *ngIf="loanForm.get('loanname').invalid && (loanForm.get('loanname').dirty || loanForm.get('loanname').touched)">
+        <small *ngIf="loanForm.get('loanname').errors['required']">Loan Company is required.</small>
+      </div>
+    </div>
+  
+    <div>
+      <label for="loanamount">Loan Amount</label>
+      <input id="loanamount" type="number" formControlName="loanamount">
+      <div *ngIf="loanForm.get('loanamount').invalid && (loanForm.get('loanamount').dirty || loanForm.get('loanamount').touched)">
+        <small *ngIf="loanForm.get('loanamount').errors['required']">Loan Amount is required.</small>
+        <small *ngIf="loanForm.get('loanamount').errors['min']">Loan Amount must be positive.</small>
+      </div>
+    </div>
+  
+    <div>
+      <label for="loanstatus">Loan Status</label>
+      <input class="form-input" id="loanstatus" formControlName="loanstatus">
+      <div *ngIf="loanForm.get('loanstatus').invalid && (loanForm.get('loanstatus').dirty || loanForm.get('loanstatus').touched)">
+        <small *ngIf="loanForm.get('loanstatus').errors['required']">Loan Status is required.</small>
+      </div>
+    </div>
+  
+    <div>
+      <label for="loanissuedate">Loan Issue Date</label>
+      <input class="form-input" id="loanissuedate" type="date" formControlName="loanissuedate">
+      <div *ngIf="loanForm.get('loanissuedate').invalid && (loanForm.get('loanissuedate').dirty || loanForm.get('loanissuedate').touched)">
+        <small *ngIf="loanForm.get('loanissuedate').errors['required']">Loan Issue Date is required.</small>
+      </div>
+    </div>
+  
+    <button type="submit" [disabled]="loanForm.invalid">Submit</button>
+  </form>
+  

@@ -8,18 +8,13 @@
     <div class="navbar-collapse-items" [ngClass]="{'show': dropdownOpen}" id="navbarNavDropdown">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Features</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Pricing</a>
+          <a class="nav-link active" aria-current="page" routerLink="dashboard">Dashboard</a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" aria-expanded="false" (click)="toggleDropdown()">
+          <span class="nav-link drop-down" href="#" role="button" aria-expanded="false" (click)="toggleDropdown()">
             User
-          </a>
+            <span class="px-icons caret_down"></span>
+          </span>
           <ul class="dropdown-menu" [ngClass]="{'show': dropdownOpen}">
             <li><a class="dropdown-item" routerLink="settings">Settings</a></li>
             <li><a class="dropdown-item" href="activity">Activity</a></li>
