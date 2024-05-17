@@ -3,11 +3,15 @@ const mongoose = require("mongoose");
 const laonSchema = new mongoose.Schema(
     {
         customerId: String,
-        loantype: Array,
+        loantype: String,
         loanname: String,
         loanamount: Number,
         loanstatus: String,
-        loanissuedate: Date,
+        loanissuedate: {
+            type: Date,
+            default: Date.now(),
+            required: true
+        },
     },
     {
         timestamps: true,

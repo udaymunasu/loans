@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CustomerService } from '../services/customer.service';
+import { LoansService } from '../services/loans.service';
 
 interface Customer {
   name: string;
@@ -31,31 +32,26 @@ interface LoanType {
 })
 export class DashboardComponent implements OnInit {
   totalCustomers: number;
-  totalLoans: number = 500;
   totalInvoices: number = 300;
   pendingLoans: number = 150;
   approvedLoans: number = 350;
 
   customerList: any;
   displayedCustomers: any[];
-  latestLoans: Loan[] = [
-    { amount: 1000, date: '2024-04-01', status: 'Approved' },
-    { amount: 2000, date: '2024-04-02', status: 'Pending' },
-    // Add more loans here
-  ];
+
+  loanslist: any;
+  displayedloans: any;
+  totalLoans: number ;
+
+
 
   loanStatus: LoanStatus[] = [];
   loanTypes: LoanType[] = [];
 
-  constructor(private cutsomerService: CustomerService) {
+  constructor(private cutsomerService: CustomerService,
+    private loanService: LoansService) {
     // Generate random loan status data
-    for (let i = 1; i <= 10; i++) {
-      this.loanStatus.push({
-        id: i,
-        amount: Math.floor(Math.random() * 10000) + 1000,
-        status: Math.random() < 0.5 ? 'Approved' : 'Pending',
-      });
-    }
+   
 
     // Generate random loan types data
     const types = ['Personal Loan', 'Business Loan', 'Home Loan', 'Car Loan'];
@@ -68,6 +64,7 @@ export class DashboardComponent implements OnInit {
   }
   ngOnInit(): void {
     this.getCustomerList();
+    this.getLoanList();
   }
 
   getCustomerList() {
@@ -82,5 +79,27 @@ export class DashboardComponent implements OnInit {
 
       console.log('this.customers', this.displayedCustomers);
     });
+  }
+
+  getLoanList() {
+    this.loanService.getallloanss().subscribe(data => {
+      if(data) {
+        console.log("data", data)
+        this.loanslist = data
+        this.displayedloans = this.loanslist.loans;
+
+        // this.loanStatus = this.displayedloans.map((data: any) => {
+
+        //   id: data._id,
+        //   amount: data.amount
+        // })
+  
+        console.log("this.loanStatus", this.loanStatus)
+
+        this.totalLoans = this.displayedloans.length;
+      }
+      
+      console.log("this.displayedloans", this.displayedloans)
+    })
   }
 }

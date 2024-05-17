@@ -9,6 +9,7 @@ const cors = require("cors");
 
 var auditsRoute = require('./routes/audit.routes');
 var usersRouter = require('./routes/users');
+var loanRoutes = require('./routes/loans.routes');
 var customersRoute = require('./routes/cutomers.routes');
 var invoicesRoute = require('./routes/invoices.routes');
 var settingsRoute = require('./routes/settings.routes');
@@ -46,6 +47,7 @@ mongoose
 
 app.use('/users', usersRouter);
 app.use('/customer', customersRoute);
+app.use('/loan', loanRoutes);
 
 // catch 404 and forward to error handler
 // app.use(function(req, res, next) {

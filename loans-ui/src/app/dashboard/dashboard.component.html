@@ -52,9 +52,11 @@
             <tbody>
               <tr *ngFor="let customer of displayedCustomers">
                 <td>
-                  <a class="link" [routerLink]="['../customers/view', customer._id]">{{
-                    customer._id
-                  }}</a>
+                  <a
+                    class="link"
+                    [routerLink]="['../customers/view', customer._id]"
+                    >{{ customer._id }}</a
+                  >
                 </td>
 
                 <td>{{ customer.firstname }}</td>
@@ -71,25 +73,35 @@
 
       <div class="widget">
         <h2>Latest Loans</h2>
-        <table>
-          <thead>
-            <tr>
-              <th>Amount</th>
-              <th>Date</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let loan of latestLoans">
-              <td>{{ loan.amount }}</td>
-              <td>{{ loan.date }}</td>
-              <td>{{ loan.status }}</td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="loan-table webkit-styling" id="style-1">
+          <table>
+            <thead>
+              <tr>
+                <th>Loan ID</th>
+                <th>Customer Id</th>
+                <th>Loan Amount</th>
+                <th>Loan Issued Date</th>
+                <th>Loan Status</th>
+                <th>Loan Created Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let loan of displayedloans">
+                <td class="link" [routerLink]="['../view', loan._id]">
+                  {{ loan._id }}
+                </td>
+                <td class="link">{{ loan.customerId }}</td>
+                <td>{{ loan.loanamount }}</td>
+                <td>{{ loan.loanissuedate | date : "dd/MM/yyyy" }}</td>
+                <td>{{ loan.loanstatus }}</td>
+                <td>{{ loan.createdAt | date : "dd/MM/yyyy" }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
 
-      <div class="widget">
+      <!-- <div class="widget">
         <h2>Loan Status</h2>
         <table>
           <thead>
@@ -107,7 +119,7 @@
             </tr>
           </tbody>
         </table>
-      </div>
+      </div> -->
 
       <div class="widget">
         <h2>Loan Types</h2>

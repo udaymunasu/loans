@@ -9,7 +9,9 @@ export const environment = {
         DELETE_CUSTOMERS: 'delete',
         SEARCH_CUSTOMERS: 'search',
     },
-    LOANS: {
+    LOAN_BASE_URL: 'http://localhost:3000/loan/',
+    LOAN: {
+        APPLY_LOAN: 'applyloan',
         GET_ALL_LOANS: 'list',
         GET_LOANS: 'get',
         UPDATE_LOANS: 'update',

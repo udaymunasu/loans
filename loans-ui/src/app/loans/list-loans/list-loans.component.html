@@ -1,8 +1,8 @@
-<!-- customer-list.component.html -->
+<!-- loan-list.component.html -->
 <div class="container">
     <h1>
       loans
-      <button (click)="addLoan()" class="add-customer-btn">Add Customer</button>
+      <button (click)="addLoan()" class="add-loan-btn">Add loan</button>
     </h1>
     <div class="search-container">
       <input type="text" [(ngModel)]="searchText" placeholder="Search" class="search-field">
@@ -10,18 +10,22 @@
     <table>
       <thead>
         <tr>
-          <th>ID</th>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Phone</th>
+          <th>Loan ID</th>
+          <th>Customer Id</th>
+          <th>Loan Amount</th>
+          <th>Loan Issued Date</th>
+          <th>Loan Status</th>
+          <th>Loan Created Date</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let customer of displayedloans">
-          <td>{{ customer.id }}</td>
-          <td>{{ customer.name }}</td>
-          <td>{{ customer.email }}</td>
-          <td>{{ customer.phone }}</td>
+        <tr *ngFor="let loan of displayedloans">
+          <td class="link" [routerLink]="['../view', loan._id]">{{ loan._id }}</td>
+          <td class="link">{{ loan.customerId }}</td>
+          <td>{{ loan.loanamount }}</td>
+          <td>{{ loan.loanissuedate }}</td>
+          <td>{{ loan.loanstatus }}</td>
+          <td>{{ loan.createdAt }}</td>
         </tr>
       </tbody>
     </table>

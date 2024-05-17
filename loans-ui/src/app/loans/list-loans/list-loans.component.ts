@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoansService } from 'src/app/services/loans.service';
 
 @Component({
   selector: 'app-list-loans',
@@ -9,22 +10,18 @@ export class ListLoansComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.getCustomerList()
   }
 
   
-  loans: any[] = [
-    { id: 1, name: 'John Doe', email: 'john@example.com', phone: '123-456-7890' },
-    { id: 2, name: 'Jane Doe', email: 'jane@example.com', phone: '987-654-3210' },
-    // Add more loans here
-  ];
+  loanslist: any;
 
   displayedloans: any[];
   searchText: string = '';
   currentPage: number = 1;
   itemsPerPage: number = 5;
 
-  constructor() {
-    this.displayedloans = this.loans.slice(0, this.itemsPerPage);
+  constructor(private loanService: LoansService) {
   }
 
   addLoan() {
@@ -48,11 +45,23 @@ export class ListLoansComponent implements OnInit {
   updateDisplayedloans() {
     const startIndex = (this.currentPage - 1) * this.itemsPerPage;
     const endIndex = startIndex + this.itemsPerPage;
-    this.displayedloans = this.loans.slice(startIndex, endIndex);
+    this.displayedloans = this.loanslist.slice(startIndex, endIndex);
   }
 
   get totalPages(): number {
-    return Math.ceil(this.loans.length / this.itemsPerPage);
+    return Math.ceil(this.loanslist?.length / this.itemsPerPage);
+  }
+
+  getCustomerList() {
+    this.loanService.getallloanss().subscribe(data => {
+      if(data) {
+        console.log("data", data)
+        this.loanslist = data
+        this.displayedloans = this.loanslist.loans;
+      }
+      
+      console.log("this.customers", this.displayedloans)
+    })
   }
 
 }

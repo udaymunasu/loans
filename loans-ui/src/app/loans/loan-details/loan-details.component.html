@@ -1,0 +1,33 @@
+<!-- list-loans.component.html -->
+
+<div class="loan-card" *ngIf="loan">
+    <div class="card-body">
+      <div class="card-header">
+        <h5 class="card-title">Loan Details</h5>
+        <button class="edit-button" [routerLink]="['../../edit', loan._id]">Edit
+            <span class="px-icons edit"></span>
+        </button>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <p>
+            <strong>Loan ID:</strong> <a>{{ loan._id }}</a>
+          </p>
+          <p><strong>Customer Id:</strong> {{ loan.customerId }}</p>
+
+          <p><strong>Created Date:</strong> {{ loan.createdAt | date: 'dd/MM/yyyy' }}
+          <p><strong>Loan Amount:</strong> {{ loan.loanamount }}</p>
+        </div>
+        <div class="col-md-6">
+          <p><strong>Loan issue date:</strong> {{ loan.loanissuedate  | date: 'dd/MM/yyyy' }}</p>
+          <p><strong>Loan Name:</strong> {{ loan.loanname }}</p>
+          <p><strong>Loan status:</strong> <span class="loan-status">{{ loan.loanstatus }}</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div *ngIf="!loan">
+    <p>No loan details found.</p>
+  </div>
+  
