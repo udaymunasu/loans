@@ -1,26 +1,5 @@
 <!-- list-loans.component.html -->
 
-<div class="loan-card" *ngIf="loan">
-  <div class="card-body">
-   
-    <div class="row">
-      <div class="col-md-6">
-        <p>
-          <strong>Loan ID:</strong> <a>{{ loan._id }}</a>
-        </p>
-        <p><strong>Customer Id:</strong> {{ loan.customerId }}</p>
-
-        <p><strong>Created Date:</strong> {{ loan.createdAt | date: 'dd/MM/yyyy' }}
-        <p><strong>Loan Amount:</strong> {{ loan.loanamount | currency }}</p>
-      </div>
-      <div class="col-md-6">
-        <p><strong>Loan issue date:</strong> {{ loan.loanissuedate | date: 'dd/MM/yyyy' }}</p>
-        <p><strong>Loan Name:</strong> {{ loan.loanname }}</p>
-        <p><strong>Loan status:</strong> <span class="loan-status">{{ loan.loanstatus }}</span></p>
-      </div>
-    </div>
-  </div>
-</div>
 
 <ng-container *ngIf="allLoans">
   <!-- {{allLoans | json}} -->
