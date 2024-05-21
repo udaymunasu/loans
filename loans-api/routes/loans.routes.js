@@ -68,10 +68,28 @@ router.get('/get/:id', async function (req, res, next) {
 router.get('/getbycustomer/:customerId', async function (req, res, next) {
     try {
 
-        const loan = await loanModel.find({customerId:  req.params.customerId});
+        const loan = await loanModel.find({ customerId: req.params.customerId });
 
         if (loan) {
             return res.status(200).send({ loan: loan });
+        } else {
+            return res.status(404).send({ message: "Loan not found" });
+        }
+    } catch (error) {
+        console.error("Error:", error);
+        return res.status(500).send({ message: "Error in the request" });
+    }
+});
+
+router.put('/edit/:id', async function (req, res, next) {
+    try {
+        const loanId = req.params.id;
+        const params = req.body;
+
+        const updatedLoan = await loanModel.findByIdAndUpdate(loanId, params, { new: true });
+
+        if (updatedLoan) {
+            return res.status(200).send({ user: updatedLoan });
         } else {
             return res.status(404).send({ message: "Loan not found" });
         }

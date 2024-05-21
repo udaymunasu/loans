@@ -14,7 +14,7 @@ export const environment = {
         APPLY_LOAN: 'applyloan',
         GET_ALL_LOANS: 'list',
         GET_LOANS: 'get',
-        UPDATE_LOANS: 'update',
+        EDIT_LOANS: 'edit',
         DELETE_LOANS: 'delete',
         SEARCH_LOANS: 'search',
     }

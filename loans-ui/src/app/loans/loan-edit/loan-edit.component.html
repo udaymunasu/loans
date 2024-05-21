@@ -1,0 +1,29 @@
+<div class="update-loan">
+  <h1>Update Product</h1>
+  <p class="message-p">{{ loanMessage }}</p>
+  <form [formGroup]="loanForm" class="common-form">
+    {{ loanData?.loanname }}
+
+    <input
+      type="text"
+      class="form-input"
+      placeholder="Enter loan loanamount"
+      formControlName="loanamount"
+      [value]="loanData?.loanamount"
+    />
+
+    <input
+      type="text"
+      class="form-input"
+      placeholder="Enter loan loanname"
+      formControlName="loanname"
+      [value]="loanData?.loanname"
+    />
+
+    <select id="loanstatus" formControlName="loanstatus">
+      <option *ngFor="let status of LoanStatus" [value]="status">{{ status }}</option>
+    </select>
+
+    <button class="form-button" (click)="submit()">Update loan</button>
+  </form>
+</div>

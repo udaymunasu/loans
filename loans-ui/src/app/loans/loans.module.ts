@@ -7,6 +7,7 @@ import { ListLoansComponent } from './list-loans/list-loans.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddLoanComponent } from './add-loan/add-loan.component';
 import { LoanDetailsComponent } from './loan-details/loan-details.component';
+import { LoanEditComponent } from './loan-edit/loan-edit.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { LoanDetailsComponent } from './loan-details/loan-details.component';
     LoansComponent,
     ListLoansComponent,
     AddLoanComponent,
-    LoanDetailsComponent
+    LoanDetailsComponent,
+    LoanEditComponent
   ],
   imports: [
     CommonModule,

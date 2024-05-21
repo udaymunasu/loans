@@ -41,26 +41,17 @@ export class DashboardComponent implements OnInit {
 
   loanslist: any;
   displayedloans: any;
-  totalLoans: number ;
-
-
+  totalLoans: number;
 
   loanStatus: LoanStatus[] = [];
-  loanTypes: LoanType[] = [];
+  loanTypes: any;
 
-  constructor(private cutsomerService: CustomerService,
-    private loanService: LoansService) {
+  constructor(
+    private cutsomerService: CustomerService,
+    private loanService: LoansService
+  ) {
     // Generate random loan status data
-   
-
     // Generate random loan types data
-    const types = ['Personal Loan', 'Business Loan', 'Home Loan', 'Car Loan'];
-    for (let type of types) {
-      this.loanTypes.push({
-        type: type,
-        interestRate: Math.floor(Math.random() * 10) + 5,
-      });
-    }
   }
   ngOnInit(): void {
     this.getCustomerList();
@@ -82,10 +73,10 @@ export class DashboardComponent implements OnInit {
   }
 
   getLoanList() {
-    this.loanService.getallloanss().subscribe(data => {
-      if(data) {
-        console.log("data", data)
-        this.loanslist = data
+    this.loanService.getallloanss().subscribe((data) => {
+      if (data) {
+        console.log('data', data);
+        this.loanslist = data;
         this.displayedloans = this.loanslist.loans;
 
         // this.loanStatus = this.displayedloans.map((data: any) => {
@@ -93,13 +84,32 @@ export class DashboardComponent implements OnInit {
         //   id: data._id,
         //   amount: data.amount
         // })
-  
-        console.log("this.loanStatus", this.loanStatus)
+
+        console.log('this.loanStatus', this.loanStatus);
 
         this.totalLoans = this.displayedloans.length;
       }
-      
-      console.log("this.displayedloans", this.displayedloans)
-    })
+
+      console.log('this.displayedloans', this.displayedloans);
+      this.loanTypes = this.getLoanTypeCount(this.displayedloans);
+      console.log('thois.loanTypes', this.loanTypes);
+    });
+  }
+
+  getLoanTypeCount(loans: any) {
+   const filteredLoans = loans.filter(loan => loan.loantype)
+   console.log("filteredLoans", filteredLoans)
+
+   const loanTypeMap = new Map<string, number>()
+   filteredLoans.forEach(loan => {
+    loanTypeMap.set(loan.loantype, (loanTypeMap.get(loan.loantype) || 0) + 1)
+     
+   });
+
+   const loantypecount = Array.from(loanTypeMap.entries()).map(([loantype, count]) => ({
+     loantype, count
+   }))
+
+   return loantypecount
   }
 }

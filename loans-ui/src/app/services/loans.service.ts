@@ -26,8 +26,16 @@ export class LoansService {
     return this.httpClient.get(url);
   }
 
+  editLoan(product: any) {
+    console.log("product service", product)
+    let url = environment.LOAN_BASE_URL + environment.LOAN.EDIT_LOANS +`/${product.id}`;
+    return this.httpClient.put<any>(
+      url,
+      product
+    );
+  }
+
   getByCustomerId(id) {
     return this.httpClient.get(`http://localhost:3000/loan/getbycustomer/${id}`);
-
   }
 }

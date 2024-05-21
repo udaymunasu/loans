@@ -8,10 +8,22 @@ import { LoansService } from 'src/app/services/loans.service';
   styleUrls: ['./add-loan.component.scss'],
 })
 export class AddLoanComponent implements OnInit {
-
-  loanTypes: string[] = ['Personal Loan', 'Home Loan', 'Car Loan'];
+  loanTypes: string[] = [
+    'Personal Loan',
+    'Home Loan',
+    'Car Loan',
+    'Education Loan',
+    'Gold Loan',
+    'Vehicle Loan',
+    'Loan against Property',
+    'Credit Card Loan',
+    'Short-term Business loan',
+  ];
 
   loanCompanies: string[] = [
+    'Hdfc Banking corp',
+    'Aditya Birla loan',
+    'Idfc bank corp',
     'Wells Fargo',
     'Chase Bank',
     'Bank of America',
@@ -37,7 +49,7 @@ export class AddLoanComponent implements OnInit {
   loanForm: FormGroup;
 
   responseMessage: any;
-  
+
   constructor(private fb: FormBuilder, private loanService: LoansService) {}
 
   ngOnInit(): void {

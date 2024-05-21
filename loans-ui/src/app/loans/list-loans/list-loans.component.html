@@ -12,6 +12,7 @@
         <tr>
           <th>Loan ID</th>
           <th>Customer Id</th>
+          <th>Loan Type</th>
           <th>Loan Amount</th>
           <th>Loan Issued Date</th>
           <th>Loan Status</th>
@@ -22,10 +23,11 @@
         <tr *ngFor="let loan of displayedloans">
           <td class="link" [routerLink]="['../view', loan._id]">{{ loan._id }}</td>
           <td class="link">{{ loan.customerId }}</td>
+          <td>{{ loan.loantype }}</td>
           <td>{{ loan.loanamount }}</td>
-          <td>{{ loan.loanissuedate }}</td>
+          <td>{{ loan.loanissuedate | date : "dd/MM/yyyy"  }}</td>
           <td>{{ loan.loanstatus }}</td>
-          <td>{{ loan.createdAt }}</td>
+          <td>{{ loan.createdAt | date : "dd/MM/yyyy"}}</td>
         </tr>
       </tbody>
     </table>

@@ -126,14 +126,13 @@
         <table>
           <thead>
             <tr>
-              <th>Type</th>
-              <th>Interest Rate</th>
+              <th *ngFor="let loanType of loanTypes[0] | keyvalue">{{ loanType.key }}</th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let loanType of loanTypes">
-              <td>{{ loanType.type }}</td>
-              <td>{{ loanType.interestRate }}</td>
+              <td>{{ loanType.count }}</td>
+              <td>{{ loanType.loantype }}</td>
             </tr>
           </tbody>
         </table>
